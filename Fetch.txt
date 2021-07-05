@@ -1,0 +1,12 @@
+FETCH
+
+gọi lên một API để lấy dữ liệu từ phía backend và hiển thị cho người dùng ở frontend
+
+API - Application Programming Interface (URL) ==> Placeholder rest api
+Giao diện của phần mềm là một cổng để giao tiếp
+====>>> Cổng giao tiếp giữa các phần mềm
+
+BACKEND -> API -> Fetch -> JSON/XML
+-> JSON.parse -> Javascript types -> Render ra giao diện với HTML
+
+// Rest API là một quy chuẩn để tạo ra API trên server (json-server)

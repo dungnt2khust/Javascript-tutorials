@@ -1,0 +1,33 @@
+PROMISE
+
+- Đồng bộ và bất đồng bộ
+- SYNC: 
+	+ đồng bộ là viết trước chạy trước viết sau chạy sau
+	
+- ASYNC: 
+	+ bất đồng bộ là chạy không theo thứ tự (setTimeout, setInterval, fetch, XMLHttpRequest, đọc file, request animation frame)
+
+===> CALLBACK function để xử lý các thao tác bất đồng bộ này
+
+- Nỗi đau (PAIN): 
+	+ Nỗi đau khi sử dụng callback để xử lý async ===> CALLBACK HELL - Pyramid of doom
+	+ Mở ngoặc và gọi callback lồng nhau
+
+- Lý thuyết, cách hoạt động (CONCEPT):
+	+ khi resolve thì then được gọi
+	+ khi reject thì catch được gọi
+	+ cuối cùng dù resolve hay reject thì cũng vào finally
+	+ 3 trạng thái: Pending, fulfilled, reject
+	+ CHAIN: tính chất chuỗi (nối nhau) ==> thêm nhiều then vào để nối nhau
+	+ Kết quả trả về của function đằng trước sẽ là tham số đầu vào của function đằng sau
+	+ Nếu function đứng trước return ra một promise thì sẽ không chạy ngay mà đợi promise được return kia được giải quyết rồi mới chạy tiếp
+	+ Khi bị reject giữa đường thì sẽ bỏ qua hết then và nhảy vào catch
+ 	+ Method: Promise.resolve, Promise.reject, Promise.all - khi chạy song song các promise (đầu vào là một mảng promise và trả về một mảng kết quả tương ứng)
+	
+- Thực hành, ví dụ	
+
+- Trả lời khi phỏng vấn (:|):
+	+ Promise là gì ? Promise là một khái niệm sinh ra để sử lý các trạng thái bất đồng bộ
+	+ trước khi có promise thì sử dụng callback nhưng xảy ra callback hell khi callback lồng nhau quá nhiều
+	+ Phiên bản ES6
+	+ 3 trạng thái: Pending, fulfilled, reject

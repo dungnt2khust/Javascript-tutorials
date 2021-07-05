@@ -1,0 +1,71 @@
+ES6 ra đời 2015
+
+Là một quy chuẩn cho Javascript (Như một điều luật chấp hành)
+
+1. Let & Const
+
+- mục đích để thay từ khoá var trong các phiên bản trước
+a. var/ let, const: Scope, Hoisting
+	+ đều có thể gán khi khai báo biến 
+	- Khác nhau ở phạm vi truy cập: var sẽ dùng được ở ngoài codeblock còn let và const thì không
+	- Khác nhau ở hosting: var được hỗ trợ hosting (đưa lên đầu) var được hỗ trợ hosting nên khi khai báo ở dưới vẫn dùng được ở trên
+	còn let và const thì không
+b. Const / var, let: assignment
+	- const chỉ gán được duy nhất một lần cho biến const (nếu gán cho thuộc tính bên trong thì có thể)
+	- var và let thì gán được vô số lần
+
+2. Template literals - Multi-line String (
+	+ dùng biến nội suy ngay trong chuỗi sử dụng nháy dấu huyền (``) EX: `đây là giá trị của biến ${variable}
+	+ kí tự xuống dòng \n
+
+3. Arrow function
+	+ có thể bỏ chữ function thành một dấu (=>) phía sau EX: var sum = (a, b) => {return a + b;};
+	+ khi dùng return luôn có thể bỏ return bên trong và ghi luôn giá trị EX: var sum = (a, b) => a + b;
+	+ khi trả về bất cứ kiểu dữ liệu nào đều có thể ghi phía sau như vậy trừ trường hợp được mở bởi dấu ngoặc nhọn thì sẽ thực thi khối lệnh
+	bên trong vì thế nếu muốn trả về một object thì phải thêm cặp ngoặc tròn ở ngoài EX: var objectTest = (a, b) => ({a, b});
+	+ arrow function thì không thể được dùng làm constructor function hoặc ghi thành method trong một object
+
+4. Classes 
+	+ giống với khái niệm trong những ngôn ngữ lập trình khác
+
+5. Default parameter values
+	+ truyền tham số mặc định vào cho hàm (khi truyền undefined thì tự hiệu là không truyền gì)
+
+6. Enhanced object literals
+	+ định nghĩa key: value cho object là một biến 
+	+ định nghĩa method cho object
+	+ định nghĩ key cho object dưới dạng biến
+
+7. Destructuring (Phân rã - lấy trực tiếp các phần tử bên trong mà không cần dùng chỉ mục)
+	+ var array = ['1', '2', '3'];
+	+ var [a, b, c] = array; <=> var a = array[0]; var b = array[1]; var c = array[2]; 
+	+ var object = { name: 'javascript', price: 1000};
+	+ var {name, price} = course; (Biến sẽ phải trùng với key trong object)
+	- Dùng rest để lấy những phần còn lại sau khi destructuring
+8. Rest parameters 
+	+ Khi sử dụng với destructuring và làm parameters trong function
+	+ Rest là lấy phần còn lại nên params ở đây là tất cả luôn còn nếu thêm a, b, c thì params sẽ bớt đi 3 phần tử
+	+ function logger(...params) {
+		console.log(params);
+	}
+	nhận bao nhiêu tham số cũng được vì nó trả về một mảng tham số truyền vào (Gần giống với arguments)
+
+9. Spread (...)
+	+ khi sử dụng trước array hoặc object thì nó sẽ bỏ đi dấu ngoặc
+	+ var array1; var array2; khi nối và cho vào array3 = [...array2, ...array1];
+	+ sử dụng trong truyền tham số cho hàm để xoá ngoặc và truyền vào toàn phần từ sau đó dùng rest để lưu hết nó vào mảng và duyệt mảng để dùng
+	
+10. Tagged template literals 
+	+ Sử dụng một function qua cú pháp Tagged template literals (kết hợp với template string)
+	+ Tham số đầu tiên là một mảng các tham số không phải là nội suy
+	+ Những tham số tiếp theo là những tham số được nội suy vào
+
+11. Modules (Import / Export)
+	+ bóc tách chuong trình ra thành nhiều file riêng rẽ
+	+ syntax: import logger form './logger.js', export ở file thêm vào để xuất ra: export default logger / export const VARIABLE_NAME = ... (Thêm type="module" vào trong thẻ script)
+	+ import {VARIABEL_NAME, ....} from './variableDeclare.js' những export khác default phải để trong ngoặc nhọn (sử dụng destructuring để import)
+	+ có thể import cách khác (import * as constants from './constants.js')
+
+12. Optional chaining (?.)
+	+ khi nghi ngờ một key nào đó của object không tồn tại thì thêm vào trước một dấu hỏi chấm để tránh lỗi khi truy xuất dữ liệu từ object, array hoặc các tham số của function
+	+ khi thực sự không chắc chắn if(obj?.cat?.cat2?.cat3) { //code}
